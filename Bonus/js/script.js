@@ -39,7 +39,12 @@ var app = new Vue({
             },
         ],  
     },
-    
+        mounted(){
+           const autoPaly = setInterval(this.nextImage , 3000)
+
+        },
+
+
         methods : {
             // funzione per adare avanti nella foto
             nextImage(){
@@ -62,6 +67,8 @@ var app = new Vue({
             showImage(index){
                 this.currentElement = index;
             }
+
+           
         }        
   }) 
   
