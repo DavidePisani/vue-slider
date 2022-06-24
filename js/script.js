@@ -1,4 +1,5 @@
-
+// Descrizione:
+// Partendo dal markup in allegato, rifare lo slider usando Vuejs.
 
 var app = new Vue({
     el: '#root',
@@ -33,6 +34,7 @@ var app = new Vue({
         ],  
     },
         methods : {
+            // funzione per adare avanti nella foto
             nextImage(){
                 if(this.currentImage < this.slides.length - 1) {
                 
@@ -41,7 +43,7 @@ var app = new Vue({
                     this.currentImage = 0
                  }
             },
-
+            // funzione per tornare indetro nelle foto
             prevImage(){
                 if(this.currentImage > 0) {
                 
