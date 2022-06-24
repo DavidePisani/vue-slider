@@ -6,11 +6,11 @@
 // 2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
 // 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
 
-
 var app = new Vue({
     el: '#root',
     data: {
          currentElement: 0,
+         autoPaly : null,
          slides : [
             {
                 image: 'img/01.jpg',
@@ -39,11 +39,10 @@ var app = new Vue({
             },
         ],  
     },
+        // all'avvio parte un auto play delle immagini
         mounted(){
-           const autoPaly = setInterval(this.nextImage , 3000)
-
+          this.startAutoPlay()
         },
-
 
         methods : {
             // funzione per adare avanti nella foto
@@ -63,12 +62,19 @@ var app = new Vue({
                  }else{
                     this.currentElement = this.slides.length - 1                 }
             },
-
+            // funzione per far apparire l'immagine al click su una Thumb
             showImage(index){
                 this.currentElement = index;
-            }
+            },
+            // funzione per avviare lo scorrimento delle Thumb in auto 
+            startAutoPlay(){
+                this.autoPaly = setInterval(this.nextImage , 3000);
+            },
+            // funzione per stoppare lo scorrimento delle Thumb al massaggio delmouse sopra 
+            stopAutoPlay(){
+             clearInterval(this.autoPaly);
 
-           
+            },
         }        
   }) 
   
